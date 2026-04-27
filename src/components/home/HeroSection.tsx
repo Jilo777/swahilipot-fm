@@ -31,6 +31,8 @@ const HeroSection = () => {
   const showBanners = [
     '/show-banners/breakfast-club.jpeg',
     '/show-banners/swahilipot-cafe.jpeg',
+    '/show-banners/beyond-balot.jpeg',
+    '/show-banners/the-night-shift.png',
     '/show-banners/swahilipot-aroma.png',
     '/show-banners/swahilipot-drive.png',
     '/show-banners/mikuki-ya-maneno.png',

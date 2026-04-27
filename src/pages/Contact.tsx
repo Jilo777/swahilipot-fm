@@ -79,7 +79,7 @@ const Contact = () => {
                 </div>
                 <div className='flex items-center gap-2'>
                   <Mail className='h-4 w-4' />
-                  <span>miriam@swahilipothub.co.ke</span>
+                  <span>info@swahilipot.co.ke</span>
                 </div>
               </div>
             </div>
@@ -273,6 +273,9 @@ const Contact = () => {
                         <a href='tel:+254700917917' className='text-gray-600'>
                           +254 700 917917
                         </a>
+                        <a href='tel:+25471917917' className='text-gray-600 ml-4'>
+                          +254 719 17917
+                        </a>
                       </div>
                     </div>
 
@@ -285,10 +288,10 @@ const Contact = () => {
                       <div>
                         <p className='font-medium'>Email Us</p>
                         <a
-                          href='mailto:miriam@swahilipothub.co.ke'
+                          href='mailto:info@swahilipot.co.ke'
                           className='text-gray-600'
                         >
-                          miriam@swahilipothub.co.ke
+                          info@swahilipot.co.ke
                         </a>
                       </div>
                     </div>
