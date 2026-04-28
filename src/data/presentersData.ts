@@ -16,7 +16,6 @@ export interface Presenter {
 }
 
 export const presenters: Presenter[] = [
-  
   {
     id: 'salim-barissa',
     name: 'Salim Barissa',

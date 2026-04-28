@@ -44,64 +44,67 @@ const Schedule = () => {
       <section className='container mx-auto px-4 md:px-6 mb-10'>
         <div className='max-w-7xl mx-auto'>
           <div className='relative overflow-hidden rounded-2xl bg-black'>
-          <video
-            className='h-[260px] md:h-[360px] lg:h-[420px] w-full object-cover pointer-events-none'
-            src='/motion/spfm%20motion.mp4'
-            autoPlay
-            muted
-            loop
-            playsInline
-            disablePictureInPicture
-            controlsList='nodownload nofullscreen noplaybackrate noremoteplayback'
-          />
+            <video
+              className='h-[260px] md:h-[360px] lg:h-[420px] w-full object-cover pointer-events-none'
+              src='/motion/spfm%20motion.mp4'
+              autoPlay
+              muted
+              loop
+              playsInline
+              disablePictureInPicture
+              controlsList='nodownload nofullscreen noplaybackrate noremoteplayback'
+            />
           </div>
         </div>
       </section>
 
       <div className='container mx-auto px-4 md:px-6 py-2 md:py-6'>
         {/* Header section */}
-        <ScheduleHeader selectedDay={selectedDay} onDayChange={setSelectedDay} />
+        <ScheduleHeader
+          selectedDay={selectedDay}
+          onDayChange={setSelectedDay}
+        />
 
         {/* Main content with tabs for different views */}
         <div className='mb-8'>
-        <Tabs
-          defaultValue='grid'
-          className='w-full'
-          onValueChange={(val) => setViewMode(val as 'grid' | 'timeline')}
-        >
-          <div className='flex justify-between items-center mb-6'>
-            <h2 className='font-display text-2xl font-bold'>
-              {selectedDay}'s Shows
-            </h2>
+          <Tabs
+            defaultValue='grid'
+            className='w-full'
+            onValueChange={(val) => setViewMode(val as 'grid' | 'timeline')}
+          >
+            <div className='flex justify-between items-center mb-6'>
+              <h2 className='font-display text-2xl font-bold'>
+                {selectedDay}'s Shows
+              </h2>
 
-            <TabsList>
-              <TabsTrigger value='grid'>Grid View</TabsTrigger>
-              <TabsTrigger value='timeline'>Timeline</TabsTrigger>
-            </TabsList>
-          </div>
-
-          <TabsContent value='grid'>
-            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
-              {showsForSelectedDay.map((show) => (
-                <div key={show.id} className='scroll-animation'>
-                  <ShowCard show={show} />
-                </div>
-              ))}
-
-              {showsForSelectedDay.length === 0 && (
-                <div className='col-span-full bg-gray-50 border border-gray-200 rounded-lg p-8 text-center'>
-                  <p className='text-gray-500'>
-                    No shows scheduled for this day.
-                  </p>
-                </div>
-              )}
+              <TabsList>
+                <TabsTrigger value='grid'>Grid View</TabsTrigger>
+                <TabsTrigger value='timeline'>Timeline</TabsTrigger>
+              </TabsList>
             </div>
-          </TabsContent>
 
-          <TabsContent value='timeline'>
-            <TimelineView shows={showsForSelectedDay} />
-          </TabsContent>
-        </Tabs>
+            <TabsContent value='grid'>
+              <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
+                {showsForSelectedDay.map((show) => (
+                  <div key={show.id} className='scroll-animation'>
+                    <ShowCard show={show} />
+                  </div>
+                ))}
+
+                {showsForSelectedDay.length === 0 && (
+                  <div className='col-span-full bg-gray-50 border border-gray-200 rounded-lg p-8 text-center'>
+                    <p className='text-gray-500'>
+                      No shows scheduled for this day.
+                    </p>
+                  </div>
+                )}
+              </div>
+            </TabsContent>
+
+            <TabsContent value='timeline'>
+              <TimelineView shows={showsForSelectedDay} />
+            </TabsContent>
+          </Tabs>
         </div>
 
         {/* Weekly overview section */}

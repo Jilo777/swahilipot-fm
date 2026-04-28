@@ -91,7 +91,10 @@ const getTagText = (item: Element, selectors: string[]): string => {
   return '';
 };
 
-const extractImageUrl = (item: Element, fallbackText: string): string | null => {
+const extractImageUrl = (
+  item: Element,
+  fallbackText: string
+): string | null => {
   const mediaContent =
     item.querySelector('media\\:content')?.getAttribute('url') ||
     item.querySelector('content')?.getAttribute('url');
@@ -104,7 +107,9 @@ const extractImageUrl = (item: Element, fallbackText: string): string | null => 
     return enclosure;
   }
 
-  const descriptionImage = fallbackText.match(/<img[^>]+src=['"]([^'"]+)['"]/i)?.[1];
+  const descriptionImage = fallbackText.match(
+    /<img[^>]+src=['"]([^'"]+)['"]/i
+  )?.[1];
   if (descriptionImage) {
     return descriptionImage;
   }
@@ -167,7 +172,10 @@ const parseFeedXml = (feed: NewsFeed, xmlString: string): NewsArticle[] => {
   return items
     .map((item, index) => {
       const title = getTagText(item, ['title']);
-      const rawDescription = getTagText(item, ['description', 'content\\:encoded']);
+      const rawDescription = getTagText(item, [
+        'description',
+        'content\\:encoded',
+      ]);
       const excerpt = stripHtml(rawDescription).slice(0, 220);
       const url = getTagText(item, ['link']);
       const publishedAt = getTagText(item, ['pubDate', 'published', 'updated']);
@@ -185,7 +193,12 @@ const parseFeedXml = (feed: NewsFeed, xmlString: string): NewsArticle[] => {
         image: extractImageUrl(item, rawDescription),
         publishedAt: publishedAt || new Date().toISOString(),
         source: feed.name,
-        category: detectCategory(title, excerpt, feed.defaultCategory, rawCategory),
+        category: detectCategory(
+          title,
+          excerpt,
+          feed.defaultCategory,
+          rawCategory
+        ),
       } satisfies NewsArticle;
     })
     .filter((article): article is NewsArticle => article !== null);
@@ -271,7 +284,10 @@ export const getDailyNewsArticles = async (): Promise<NewsArticle[]> => {
   );
 
   const parsed = settled
-    .filter((result): result is PromiseFulfilledResult<NewsArticle[]> => result.status === 'fulfilled')
+    .filter(
+      (result): result is PromiseFulfilledResult<NewsArticle[]> =>
+        result.status === 'fulfilled'
+    )
     .flatMap((result) => result.value);
 
   const finalArticles = sortByNewest(dedupeArticles(parsed)).slice(0, 80);

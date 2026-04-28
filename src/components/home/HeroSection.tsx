@@ -81,8 +81,8 @@ const HeroSection = () => {
             Swahilipot FM Experience
           </h1>
           <p className='text-lg md:text-xl text-gray-200 mb-8'>
-            Your daily mix of breaking news, youth conversations, music
-            culture, and community stories from the Coast and beyond.
+            Your daily mix of breaking news, youth conversations, music culture,
+            and community stories from the Coast and beyond.
           </p>
           <div className='flex flex-col sm:flex-row gap-4 justify-center'>
             <Button

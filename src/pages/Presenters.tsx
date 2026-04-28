@@ -22,7 +22,10 @@ const Presenters = () => {
       {/* Presenters Grid */}
       <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12'>
         {presenters.map((presenter) => (
-          <div key={presenter.id} className='flex flex-col items-center text-center'>
+          <div
+            key={presenter.id}
+            className='flex flex-col items-center text-center'
+          >
             {/* Circular Image with Blue Background */}
             <div className='relative mb-6'>
               <div className='absolute inset-0 bg-blue-500 rounded-full blur-xl opacity-60'></div>

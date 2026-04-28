@@ -34,7 +34,9 @@ const LatestNewsSection: React.FC<LatestNewsSectionProps> = ({
                 <Card className='overflow-hidden border-gray-200 h-full flex flex-col transition-all duration-300 hover:shadow-md'>
                   <div className='relative aspect-[4/3] overflow-hidden'>
                     <img
-                      src={article.image || '/show-banners/swahilipot-drive.png'}
+                      src={
+                        article.image || '/show-banners/swahilipot-drive.png'
+                      }
                       alt={article.title}
                       className='w-full h-full object-cover transition-transform duration-500 hover:scale-105'
                     />

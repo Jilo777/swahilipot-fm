@@ -180,7 +180,8 @@ export const allShows: Show[] = [
     id: 'beyond-the-ballot',
     title: 'Beyond The Ballot',
     host: 'Tonny Omuga, Mohammed Harith',
-    description: 'Discussing politics and current affairs beyond the ballot box with insightful analysis and discussions.',
+    description:
+      'Discussing politics and current affairs beyond the ballot box with insightful analysis and discussions.',
     image: '/show-banners/beyond-balot.jpeg',
     category: 'Talk Show',
     days: ['Monday', 'Tuesday', 'Wednesday', 'Thursday'],

@@ -61,10 +61,10 @@ const Contact = () => {
   return (
     <div className='flex flex-col gap-20 pb-24'>
       {/* Hero Section */}
-      <section 
+      <section
         className='relative bg-cover bg-center bg-no-repeat'
         style={{
-          backgroundImage: 'url(/images/contact-background.jpg)'
+          backgroundImage: 'url(/images/contact-background.jpg)',
         }}
       >
         {/* Overlay for better text readability */}
@@ -280,7 +280,10 @@ const Contact = () => {
                         <a href='tel:+254700917917' className='text-gray-600'>
                           +254 700 917917
                         </a>
-                        <a href='tel:+25471917917' className='text-gray-600 ml-4'>
+                        <a
+                          href='tel:+25471917917'
+                          className='text-gray-600 ml-4'
+                        >
                           +254 719 17917
                         </a>
                       </div>
