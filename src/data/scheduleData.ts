@@ -21,7 +21,7 @@ export const allShows: Show[] = [
   {
     id: 'the-breakfast-club',
     title: 'The Breakfast Club',
-    host: 'Miriam Angil, Emmanuel Gona, Salim Barissa',
+    host: 'Salim Barissa, Shamsa Abdi,  Joshua Wekesa',
     description:
       'Catch up with the latest news of all kinds, from politics to entertainment, with lively discussions and the best music to start your day.',
     image: '/show-banners/breakfast-club.jpeg',
@@ -34,7 +34,7 @@ export const allShows: Show[] = [
   {
     id: 'kick-off',
     title: 'Kick Off',
-    host: 'Japheth Makanaki, Salim Barissa',
+    host: 'JK Makaninki, Brian Tumaini, Austin Moraiz',
     description:
       'Get updated with the highlights of the latest sports news and results, with expert analysis and interviews with sports personalities.',
     image: '/show-banners/kickoff.png',
@@ -113,7 +113,7 @@ export const allShows: Show[] = [
   {
     id: 'the-night-shift',
     title: 'The Night Shift',
-    host: 'Tonny Omuga, Mama Zakiya',
+    host: 'Mama Zakiya, Bahati Ngazi',
     description:
       'Dive into all matters surrounding relationships and their ups and downs with Tonny Omuga and Mama Zakiya as they give you insights into how relationships take different faces throughout different generations',
     image: '/show-banners/the-night-shift.png',
@@ -180,7 +180,8 @@ export const allShows: Show[] = [
     id: 'beyond-the-ballot',
     title: 'Beyond The Ballot',
     host: 'Tonny Omuga, Mohammed Harith',
-    description: 'Discussing politics and current affairs beyond the ballot box with insightful analysis and discussions.',
+    description:
+      'Discussing politics and current affairs beyond the ballot box with insightful analysis and discussions.',
     image: '/show-banners/beyond-balot.jpeg',
     category: 'Talk Show',
     days: ['Monday', 'Tuesday', 'Wednesday', 'Thursday'],

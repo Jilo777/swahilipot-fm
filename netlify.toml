@@ -18,6 +18,10 @@
 [context.production]
   command = "npm run build"
 
-# Explicitly disable Next.js plugin
+# Disable Next.js plugin and use only Lighthouse
 [[plugins]]
   package = "@netlify/plugin-lighthouse"
+
+# Explicitly disable Next.js detection
+[[plugins]]
+  package = "@netlify/plugin-functions-core"
