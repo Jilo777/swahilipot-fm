@@ -64,12 +64,6 @@ const Header = () => {
             >
               Home
             </Link>
-            {/* <Link
-              to='/news'
-              className={`nav-link ${isActive('/news') ? 'active' : ''}`}
-            >
-              News
-            </Link> */}
             <Link
               to='/about'
               className={`nav-link ${isActive('/about') ? 'active' : ''}`}
@@ -157,12 +151,6 @@ const Header = () => {
               className={`text-2xl font-medium ${isActive('/') ? 'text-black' : 'text-gray-600'}`}
             >
               Home
-            </Link>
-            <Link
-              to='/news'
-              className={`text-2xl font-medium ${isActive('/news') ? 'text-black' : 'text-gray-600'}`}
-            >
-              News
             </Link>
             <Link
               to='/presenters'

@@ -1,8 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import HeroSection from '@/components/home/HeroSection';
 import FeaturedShowsSection from '@/components/home/FeaturedShowsSection';
-import LatestNewsSection from '@/components/home/LatestNewsSection';
-import { featuredShows, latestNews } from '@/data/homeData';
+import { featuredShows } from '@/data/homeData';
 
 const Index = () => {
   // References for animations
@@ -36,17 +35,28 @@ const Index = () => {
   }, []);
 
   return (
-    <div className='flex flex-col gap-24 pb-24'>
+    <div className='flex flex-col gap-20 pb-24'>
       <HeroSection />
+
+      <section className='w-full'>
+        <div className='relative overflow-hidden bg-black'>
+          <video
+            className='h-[340px] md:h-[480px] lg:h-[560px] w-full object-cover pointer-events-none'
+            src='/motion/mombasa%20malindi.mp4'
+            autoPlay
+            muted
+            loop
+            playsInline
+            disablePictureInPicture
+            controlsList='nodownload nofullscreen noplaybackrate noremoteplayback'
+          />
+        </div>
+      </section>
 
       <FeaturedShowsSection
         featuredShows={featuredShows}
         featuresRef={featuresRef}
       />
-
-      {/* <LatestNewsSection 
-        latestNews={latestNews} 
-      /> */}
     </div>
   );
 };

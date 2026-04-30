@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import Slider from 'react-slick';
-import { Play } from 'lucide-react';
+import { Play, Sparkles } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import 'slick-carousel/slick/slick.css';
@@ -29,8 +29,10 @@ const HeroSection = () => {
   };
 
   const showBanners = [
-    '/show-banners/breakfast-club.png',
-    '/show-banners/swahilipot-aroma.png',
+    '/show-banners/breakfast-club.jpeg',
+    '/show-banners/swahilipot-cafe.jpeg',
+    '/show-banners/beyond-balot.jpeg',
+    '/show-banners/the-night-shift.png',
     '/show-banners/swahilipot-aroma.png',
     '/show-banners/swahilipot-drive.png',
     '/show-banners/mikuki-ya-maneno.png',
@@ -76,34 +78,39 @@ const HeroSection = () => {
             {getGreeting()} • We're live on air
           </div>
           <h1 className='font-display text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6'>
-            Swahilipot FM
+            Swahilipot FM Experience
           </h1>
           <p className='text-lg md:text-xl text-gray-200 mb-8'>
-            A community radio station that brings you the latest news, music,
-            and cultural programs. Our mission is to entertain, inform, and
-            connect the youth and community at large.
+            Your daily mix of breaking news, youth conversations, music culture,
+            and community stories from the Coast and beyond.
           </p>
           <div className='flex flex-col sm:flex-row gap-4 justify-center'>
             <Button
               size='lg'
               className='rounded-full font-medium bg-white text-black hover:bg-gray-300 h-12 px-8'
+              asChild
             >
-              <Play className='mr-2 h-4 w-4' />
-              <Link to='/live'>Watch Live</Link>
+              <Link to='/live'>
+                <Play className='mr-2 h-4 w-4' />
+                Watch Live
+              </Link>
             </Button>
             <Button
               size='lg'
               className='rounded-full font-medium bg-[#271d73] hover:bg-[#2295e2] border-white h-12 px-8 text-white'
               asChild
             >
-              <Link to='/schedule'>View Schedule</Link>
+              <Link to='/presenters'>Meet Our Presenters</Link>
             </Button>
             <Button
               size='lg'
               className='rounded-full font-medium bg-[#271d73] hover:bg-[#2295e2] border-white h-12 px-8 text-white'
               asChild
             >
-              <Link to='/survey-form'>Help fill the SPFM Survey Form</Link>
+              <Link to='/schedule'>
+                <Sparkles className='mr-2 h-4 w-4' />
+                Explore the Schedule
+              </Link>
             </Button>
           </div>
         </div>

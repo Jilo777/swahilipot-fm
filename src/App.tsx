@@ -6,7 +6,6 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 import Layout from './components/layout/Layout';
 import Index from './pages/Index';
-import News from './pages/News';
 import About from './pages/About';
 import Contact from './pages/Contact';
 import Schedule from './pages/Schedule';
@@ -29,7 +28,6 @@ const App = () => (
           <Layout>
             <Routes>
               <Route path='/' element={<Index />} />
-              <Route path='/news' element={<News />} />
               <Route path='/about' element={<About />} />
               <Route path='/contact' element={<Contact />} />
               <Route path='/schedule' element={<Schedule />} />

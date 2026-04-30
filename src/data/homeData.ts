@@ -1,21 +1,21 @@
 export const featuredShows = [
   {
     title: 'The Breakfast Club',
-    host: 'Miriam Angil, Emmanuel Gona, Salim Barissa',
+    host: 'Salim Barisa, Shamsa Abdi, Joshua Wekesa',
     time: 'Weekdays • 7 - 10 AM',
-    image: '/show-banners/breakfast-club.png',
+    image: '/show-banners/breakfast-club.jpeg',
   },
   {
     title: 'Kick Off',
-    host: 'Japheth Makanaki, Salim Barissa',
+    host: 'Japheth Makanaki, Austin Moraiz,Brian Tumaini',
     time: 'Weekdays • 10 AM - 11 AM',
     image: '/show-banners/kickoff.png',
   },
   {
     title: 'Swahilipot Cafe',
-    host: 'Dorcas Uwiyera, DJ Kams',
+    host: 'Dorcas Uwiyera, Shufaa Yakut, DJ Kams',
     time: 'Weekdays • 11 AM - 2 PM',
-    image: '/show-banners/swahilipot-cafe.png',
+    image: '/show-banners/swahilipot-cafe.jpeg',
   },
 ];
 

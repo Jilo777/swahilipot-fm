@@ -61,25 +61,32 @@ const Contact = () => {
   return (
     <div className='flex flex-col gap-20 pb-24'>
       {/* Hero Section */}
-      <section className='bg-gray-50'>
-        <div className='container mx-auto px-4 md:px-6 py-16 md:py-24'>
+      <section
+        className='relative bg-cover bg-center bg-no-repeat'
+        style={{
+          backgroundImage: 'url(/images/contact-background.jpg)',
+        }}
+      >
+        {/* Overlay for better text readability */}
+        <div className='absolute inset-0 bg-black/50'></div>
+        <div className='container mx-auto px-4 md:px-6 py-16 md:py-24 relative z-10'>
           <div className='max-w-7xl mx-auto'>
             <div className='text-center max-w-3xl mx-auto'>
-              <h1 className='font-display text-4xl md:text-5xl font-bold mb-6'>
+              <h1 className='font-display text-4xl md:text-5xl font-bold mb-6 text-white'>
                 Get in Touch
               </h1>
-              <p className='text-lg text-gray-600 mb-8'>
+              <p className='text-lg text-white mb-8'>
                 Have a question or feedback? We'd love to hear from you. Reach
                 out through the form below or using our contact information.
               </p>
               <div className='flex flex-wrap justify-center gap-4'>
-                <div className='flex items-center gap-2'>
-                  <Phone className='h-4 w-4' />
-                  <span>+254 700 917917</span>
+                <div className='flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-lg px-4 py-2'>
+                  <Phone className='h-4 w-4 text-white' />
+                  <span className='text-white'>+254 700 917917</span>
                 </div>
-                <div className='flex items-center gap-2'>
-                  <Mail className='h-4 w-4' />
-                  <span>miriam@swahilipothub.co.ke</span>
+                <div className='flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-lg px-4 py-2'>
+                  <Mail className='h-4 w-4 text-white' />
+                  <span className='text-white'>info@swahilipot.co.ke</span>
                 </div>
               </div>
             </div>
@@ -273,6 +280,12 @@ const Contact = () => {
                         <a href='tel:+254700917917' className='text-gray-600'>
                           +254 700 917917
                         </a>
+                        <a
+                          href='tel:+25471917917'
+                          className='text-gray-600 ml-4'
+                        >
+                          +254 719 17917
+                        </a>
                       </div>
                     </div>
 
@@ -285,10 +298,10 @@ const Contact = () => {
                       <div>
                         <p className='font-medium'>Email Us</p>
                         <a
-                          href='mailto:miriam@swahilipothub.co.ke'
+                          href='mailto:info@swahilipot.co.ke'
                           className='text-gray-600'
                         >
-                          miriam@swahilipothub.co.ke
+                          info@swahilipot.co.ke
                         </a>
                       </div>
                     </div>

@@ -2,15 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import { Card } from '@/components/ui/card';
-
-interface NewsArticle {
-  id: string;
-  title: string;
-  excerpt: string;
-  category: string;
-  date: string;
-  image: string;
-}
+import type { NewsArticle } from '@/types/news';
 
 interface LatestNewsSectionProps {
   latestNews: NewsArticle[];
@@ -31,7 +23,7 @@ const LatestNewsSection: React.FC<LatestNewsSectionProps> = ({
           </Link>
         </div>
 
-        {latestNews.length < 0 ? (
+        {latestNews.length > 0 ? (
           <div className='grid grid-cols-1 md:grid-cols-3 gap-8'>
             {latestNews.map((article, index) => (
               <div
@@ -42,7 +34,9 @@ const LatestNewsSection: React.FC<LatestNewsSectionProps> = ({
                 <Card className='overflow-hidden border-gray-200 h-full flex flex-col transition-all duration-300 hover:shadow-md'>
                   <div className='relative aspect-[4/3] overflow-hidden'>
                     <img
-                      src={article.image}
+                      src={
+                        article.image || '/show-banners/swahilipot-drive.png'
+                      }
                       alt={article.title}
                       className='w-full h-full object-cover transition-transform duration-500 hover:scale-105'
                     />
@@ -55,14 +49,16 @@ const LatestNewsSection: React.FC<LatestNewsSectionProps> = ({
                     </p>
                     <div className='flex items-center justify-between mt-auto pt-4 border-t border-gray-100'>
                       <span className='text-xs text-gray-500'>
-                        {article.date}
+                        {new Date(article.publishedAt).toLocaleDateString()}
                       </span>
-                      <Link
-                        to={`/news/${article.id}`}
+                      <a
+                        href={article.url}
                         className='text-sm font-medium flex items-center'
+                        target='_blank'
+                        rel='noreferrer'
                       >
                         Read more <ArrowRight className='ml-1 h-3 w-3' />
-                      </Link>
+                      </a>
                     </div>
                   </div>
                 </Card>
