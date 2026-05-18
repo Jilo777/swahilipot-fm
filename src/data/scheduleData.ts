@@ -21,7 +21,7 @@ export const allShows: Show[] = [
   {
     id: 'the-breakfast-club',
     title: 'The Breakfast Club',
-    host: 'Salim Barissa, Shamsa Abdi,  Joshua Wekesa',
+    host: 'Miriam Angil, Emmanuel Gona, Salim Barissa',
     description:
       'Catch up with the latest news of all kinds, from politics to entertainment, with lively discussions and the best music to start your day.',
     image: '/show-banners/breakfast-club.jpeg',
@@ -34,7 +34,7 @@ export const allShows: Show[] = [
   {
     id: 'kick-off',
     title: 'Kick Off',
-    host: 'JK Makaninki, Brian Tumaini, Austin Moraiz',
+    host: 'Japheth Makanaki, Salim Barissa',
     description:
       'Get updated with the highlights of the latest sports news and results, with expert analysis and interviews with sports personalities.',
     image: '/show-banners/kickoff.png',
@@ -113,12 +113,12 @@ export const allShows: Show[] = [
   {
     id: 'the-night-shift',
     title: 'The Night Shift',
-    host: 'Mama Zakiya, Bahati Ngazi',
+    host: 'Tonny Omuga, Mama Zakiya',
     description:
       'Dive into all matters surrounding relationships and their ups and downs with Tonny Omuga and Mama Zakiya as they give you insights into how relationships take different faces throughout different generations',
     image: '/show-banners/the-night-shift.png',
     category: 'Talk Show',
-    days: ['Monday', 'Tuesday', 'Wednesday', 'Thursday'],
+    days: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
     startTime: '21:00',
     endTime: '00:00',
     tags: ['Talk', 'Relationships', 'Love'],
@@ -180,16 +180,36 @@ export const allShows: Show[] = [
     id: 'beyond-the-ballot',
     title: 'Beyond The Ballot',
     host: 'Tonny Omuga, Mohammed Harith',
-    description:
-      'Discussing politics and current affairs beyond the ballot box with insightful analysis and discussions.',
+    description: 'Discussing politics and current affairs beyond the ballot box with insightful analysis and discussions.',
     image: '/show-banners/beyond-balot.jpeg',
     category: 'Talk Show',
-    days: ['Monday', 'Tuesday', 'Wednesday', 'Thursday'],
+    days: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
     startTime: '19:00',
     endTime: '21:00',
     tags: ['Talk', 'Politics', 'News'],
   },
 ];
+
+const parseTimeToMinutes = (time: string): number => {
+  const [hours, minutes] = time.split(':').map(Number);
+  return hours * 60 + minutes;
+};
+
+export const getCurrentShow = (): Show | null => {
+  const now = new Date();
+  const dayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+  const currentDay = dayNames[now.getDay()];
+  const currentMinutes = now.getHours() * 60 + now.getMinutes();
+
+  return (
+    allShows.find((show) => {
+      if (!show.days.includes(currentDay)) return false;
+      const start = parseTimeToMinutes(show.startTime);
+      const end = parseTimeToMinutes(show.endTime === '00:00' ? '24:00' : show.endTime);
+      return currentMinutes >= start && currentMinutes < end;
+    }) || null
+  );
+};
 
 // Helper function to organize shows by day
 export const getScheduleByDay = (): ScheduleDay[] => {

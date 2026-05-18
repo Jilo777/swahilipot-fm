@@ -7,17 +7,26 @@ const About = () => {
   return (
     <div className='flex flex-col gap-20 pb-24'>
       {/* Hero Section */}
-      <section className='bg-gray-50'>
-        <div className='container mx-auto px-4 md:px-6 py-16 md:py-24'>
+      <section className='relative overflow-hidden'>
+        <video
+          className='absolute inset-0 h-full w-full object-cover'
+          src='/motion/logo.mp4'
+          autoPlay
+          muted
+          loop
+          playsInline
+        />
+        <div className='absolute inset-0 bg-black/50' />
+        <div className='relative container mx-auto px-4 md:px-6 py-16 md:py-24'>
           <div className='max-w-7xl mx-auto flex flex-col md:flex-row gap-12 items-center'>
-            <div className='flex-1 space-y-6'>
+            <div className='flex-1 space-y-6 text-white'>
               <div className='inline-block px-3 py-1 bg-[#271d73] text-white text-xs font-medium rounded-full mb-2'>
                 About Swahilipot FM
               </div>
               <h1 className='font-display text-4xl md:text-5xl font-bold'>
                 The Voice of Your Community
               </h1>
-              <p className='text-lg text-gray-600'>
+              <p className='text-lg text-white/90'>
                 Swahilipot FM empowers youth by providing a platform for diverse
                 voices, fostering community engagement, and nurturing talent
                 through mentorship.
@@ -43,10 +52,6 @@ const About = () => {
               {/* Floating stats */}
               <div className='absolute -bottom-6 -left-6 glass p-4 rounded-xl shadow-sm border border-white/20'>
                 <div className='flex gap-4'>
-                  {/*<div className="text-center">
-                    <p className="text-3xl font-bold">1</p>
-                    <p className="text-xs text-gray-600">Year</p>
-                  </div>*/}
                   <div className='text-center'>
                     <p className='text-3xl font-bold'>24/7</p>
                     <p className='text-xs text-gray-600'>Broadcast</p>

@@ -16,6 +16,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from '@/components/ui/tooltip';
+import { getCurrentShow } from '@/data/scheduleData';
 
 const AudioPlayer: React.FC = () => {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -23,42 +24,24 @@ const AudioPlayer: React.FC = () => {
   const [progress, setProgress] = useState(0);
   const [duration, setDuration] = useState(0);
   const [currentTime, setCurrentTime] = useState(0);
-  const getArtist = () => {
-    const now = new Date();
-    const hour = now.getHours();
-    const day = now.getDay();
-
-    if (day === 6) {
-      // Saturday
-      if (hour < 11) return 'Mikuki ya Maneno';
-      if (hour < 14) return 'Swahilipot Aroma';
-      if (hour < 19) return 'Kick-off';
-      return 'Vibes and music';
-    } else if (day === 0) {
-      // Sunday
-      return 'Vibes and music';
-    } else if (day === 5) {
-      // Friday
-      if (hour < 10) return 'The Breakfast Club';
-      if (hour < 11) return 'Kick-off';
-      if (hour < 14) return 'Swahilipot Cafe';
-      if (hour < 15) return 'Swahilipot Mixes';
-      if (hour < 19) return 'Swahilipot Drive';
-      if (hour < 22) return 'Friday Rave';
-      return 'Vibes and music';
-    } else {
-      if (hour < 10) return 'The Breakfast Club';
-      if (hour < 11) return 'Kick-off';
-      if (hour < 14) return 'Swahilipot Cafe';
-      if (hour < 19) return 'Swahilipot Drive';
-      return 'Vibes and music';
-    }
-  };
-
   const [stationInfo, setStationInfo] = useState({
     title: 'Swahilipot FM',
-    artist: `Now Playing: ${getArtist()}`,
+    artist: `Now Playing: ${getCurrentShow()?.title || 'Swahilipot FM Live'}`,
   });
+
+  useEffect(() => {
+    const updateStationInfo = () => {
+      const show = getCurrentShow();
+      setStationInfo({
+        title: 'Swahilipot FM',
+        artist: show ? `Now Playing: ${show.title}` : 'Now Playing: Swahilipot FM Live',
+      });
+    };
+
+    updateStationInfo();
+    const interval = window.setInterval(updateStationInfo, 15_000);
+    return () => window.clearInterval(interval);
+  }, []);
 
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const progressIntervalRef = useRef<number | null>(null);
@@ -66,7 +49,7 @@ const AudioPlayer: React.FC = () => {
   // Initialize audio
   useEffect(() => {
     const audio = new Audio(
-      'https://swahilipotfm.out.airtime.pro/swahilipotfm_a?_ga=2.140975346.1118176404.1720613685-1678527295.1702105127'
+      'https://swahilipotfm.out.airtime.pro:8000/swahilipotfm_b?_ga=2.93354653.1019628599.1778995799-1485725630.1749199882&_gl=1*1uegnm9*_gcl_au*MTM0MTc3MDQ1MC4xNzc3NDYxNDc3*_ga*MTQ4NTcyNTYzMC4xNzQ5MTk5ODgy*_ga_R8CHSCXRQS*czE3Nzg5OTU3OTkkbzEyMCRnMSR0MTc3ODk5NTkyMSRqNjAkbDAkaDE2NzY5NzA2NDg'
     );
     audioRef.current = audio;
     audio.volume = volume / 100;
