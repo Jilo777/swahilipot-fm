@@ -100,10 +100,10 @@ export const presenters: Presenter[] = [
   {
     id: 'josh-the-curator',
     name: 'Josh, The Curator',
-    role: 'Producer and Host',
+    role: 'Host',
     image: '/presenters/josh_wekesa.jpg',
     email: 'josh@swahilipot.fm',
-    bio: 'Josh, The Curator is the producer of the Swahilipot Drive show and host of the Request Hour',
+    bio: 'Josh, The Curator a host of the Swahilipot Drive show and the main host of the Request Hour',
     socialLinks: {
       instagram: 'https://www.instagram.com/joshthecurator_/',
     },

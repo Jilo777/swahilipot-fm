@@ -21,7 +21,7 @@ export const allShows: Show[] = [
   {
     id: 'the-breakfast-club',
     title: 'The Breakfast Club',
-    host: 'Miriam Angil, Emmanuel Gona, Salim Barissa',
+    host: 'Shamsa Abdi, Joshua Wekesa, Salim Barissa',
     description:
       'Catch up with the latest news of all kinds, from politics to entertainment, with lively discussions and the best music to start your day.',
     image: '/show-banners/breakfast-club.jpeg',
