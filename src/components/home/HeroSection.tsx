@@ -31,8 +31,6 @@ const HeroSection = () => {
   const showBanners = [
     '/show-banners/breakfast-club.jpeg',
     '/show-banners/swahilipot-cafe.jpeg',
-    '/show-banners/beyond-balot.jpeg',
-    '/show-banners/the-night-shift.png',
     '/show-banners/swahilipot-aroma.png',
     '/show-banners/swahilipot-drive.png',
     '/show-banners/mikuki-ya-maneno.png',
@@ -60,12 +58,15 @@ const HeroSection = () => {
       </div>
       {/* Added this to counter the issue with large whitespace when banners can't fit for smaller screens. This shows a theme blue background with the radio logo */}
       <div className='absolute md:opacity-0 opacity-1 inset-0 w-full h-full overflow-hidden flex items-center justify-center'>
-        <div className='absolute inset-0 bg-[#2295e2] bg-opacity-100'></div>
-        <img
-          src='/logos/swahilipot-fm-864.png'
-          alt='Swahilipot FM Logo'
-          className='relative z-10 w-full h-auto object-contain'
+        <video
+          className='absolute inset-0 w-full h-full object-cover'
+          src='/motion/logo.mp4'
+          autoPlay
+          muted
+          loop
+          playsInline
         />
+        <div className='absolute inset-0 bg-black bg-opacity-40'></div>
       </div>
       {/* Content */}
       <div className='relative z-10 text-center text-white px-6'>
@@ -81,8 +82,8 @@ const HeroSection = () => {
             Swahilipot FM Experience
           </h1>
           <p className='text-lg md:text-xl text-gray-200 mb-8'>
-            Your daily mix of breaking news, youth conversations, music culture,
-            and community stories from the Coast and beyond.
+            Your daily mix of breaking news, youth conversations, music
+            culture, and community stories from the Coast and beyond.
           </p>
           <div className='flex flex-col sm:flex-row gap-4 justify-center'>
             <Button

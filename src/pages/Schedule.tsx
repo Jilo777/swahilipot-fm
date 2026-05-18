@@ -41,20 +41,18 @@ const Schedule = () => {
 
   return (
     <div>
-      <section className='container mx-auto px-4 md:px-6 mb-10'>
-        <div className='max-w-7xl mx-auto'>
-          <div className='relative overflow-hidden rounded-2xl bg-black'>
-            <video
-              className='h-[260px] md:h-[360px] lg:h-[420px] w-full object-cover pointer-events-none'
-              src='/motion/spfm%20motion.mp4'
-              autoPlay
-              muted
-              loop
-              playsInline
-              disablePictureInPicture
-              controlsList='nodownload nofullscreen noplaybackrate noremoteplayback'
-            />
-          </div>
+      <section className='mb-10'>
+        <div className='relative overflow-hidden bg-black mx-auto w-full'>
+          <video
+            className='h-[260px] md:h-[360px] lg:h-[420px] w-full object-cover pointer-events-none'
+            src='/motion/spfm%20motion.mp4'
+            autoPlay
+            muted
+            loop
+            playsInline
+            disablePictureInPicture
+            controlsList='nodownload nofullscreen noplaybackrate noremoteplayback'
+          />
         </div>
       </section>
 
@@ -127,19 +125,21 @@ const Schedule = () => {
                       {day.name}
                     </div>
                     <div className='space-y-2'>
-                      {day.shows.map((show) => (
-                        <div
-                          key={show.id}
-                          className='p-2 text-xs bg-white border border-gray-200 rounded shadow-sm cursor-pointer hover:shadow-md transition-shadow'
-                          onClick={() => setSelectedDay(day.name)}
-                        >
-                          <p className='font-medium truncate'>{show.title}</p>
-                          <p className='text-gray-500'>
-                            {show.startTime.substring(0, 5)}
-                          </p>
-                        </div>
-                      ))}
-                      {day.shows.length === 0 && (
+                      {day.shows
+                        .filter((show) => show.id !== 'the-friday-rave')
+                        .map((show) => (
+                          <div
+                            key={show.id}
+                            className='p-2 text-xs bg-white border border-gray-200 rounded shadow-sm cursor-pointer hover:shadow-md transition-shadow'
+                            onClick={() => setSelectedDay(day.name)}
+                          >
+                            <p className='font-medium truncate'>{show.title}</p>
+                            <p className='text-gray-500'>
+                              {show.startTime.substring(0, 5)}
+                            </p>
+                          </div>
+                        ))}
+                      {day.shows.filter((show) => show.id !== 'the-friday-rave').length === 0 && (
                         <div className='p-2 text-xs text-gray-400 border border-dashed border-gray-200 rounded'>
                           No shows
                         </div>
