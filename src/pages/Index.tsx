@@ -86,7 +86,7 @@ const CounterCard = ({
   return (
     <div
       ref={ref}
-      className='scroll-animation bg-white p-8 rounded-2xl shadow-sm hover:shadow-lg transition-shadow cursor-pointer'
+      className='scroll-animation bg-white p-8 rounded-2xl shadow-sm hover:shadow-lg transition-shadow cursor-pointer min-w-[260px] snap-start'
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
@@ -171,7 +171,7 @@ const Index = () => {
             <h2 className='font-display text-3xl md:text-4xl font-bold mb-16 text-center'>
               By The Numbers
             </h2>
-            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8'>
+            <div className='flex gap-4 overflow-x-auto pb-4 md:grid md:grid-cols-2 lg:grid-cols-4 md:overflow-visible md:pb-0 snap-x snap-mandatory'>
               <CounterCard
                 icon={Radio}
                 endValue={24}
@@ -290,7 +290,7 @@ const Index = () => {
 
       {/* CTA Section */}
       <section className='container mx-auto px-4 md:px-6'>
-        <div className='max-w-3xl mx-auto bg-gradient-to-r from-[#2295e2] to-[#271d73] rounded-2xl p-12 text-white text-center scroll-animation'>
+        <div className='max-w-3xl mx-auto bg-[#151B54] rounded-2xl p-12 text-white text-center scroll-animation'>
           <h2 className='font-display text-3xl font-bold mb-4'>
             Ready to Join the Swahilipot FM Community?
           </h2>
