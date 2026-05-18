@@ -16,7 +16,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from '@/components/ui/tooltip';
-import { getCurrentShow } from '@/data/scheduleData';
+import { getCurrentShow, Show } from '@/data/scheduleData';
 
 const AudioPlayer: React.FC = () => {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -24,22 +24,15 @@ const AudioPlayer: React.FC = () => {
   const [progress, setProgress] = useState(0);
   const [duration, setDuration] = useState(0);
   const [currentTime, setCurrentTime] = useState(0);
-  const [stationInfo, setStationInfo] = useState({
-    title: 'Swahilipot FM',
-    artist: `Now Playing: ${getCurrentShow()?.title || 'Swahilipot FM Live'}`,
-  });
+  const [currentShow, setCurrentShow] = useState<Show | null>(getCurrentShow());
 
   useEffect(() => {
-    const updateStationInfo = () => {
-      const show = getCurrentShow();
-      setStationInfo({
-        title: 'Swahilipot FM',
-        artist: show ? `Now Playing: ${show.title}` : 'Now Playing: Swahilipot FM Live',
-      });
+    const updateCurrentShow = () => {
+      setCurrentShow(getCurrentShow());
     };
 
-    updateStationInfo();
-    const interval = window.setInterval(updateStationInfo, 15_000);
+    updateCurrentShow();
+    const interval = window.setInterval(updateCurrentShow, 15_000);
     return () => window.clearInterval(interval);
   }, []);
 
@@ -125,20 +118,36 @@ const AudioPlayer: React.FC = () => {
         <div className='flex items-center py-3 md:py-4 gap-4'>
           {/* Station Info and Cover */}
           <div className='flex items-center gap-3 flex-1 min-w-0'>
+            <div className='w-12 h-12 rounded-xl overflow-hidden bg-gray-100 flex-shrink-0'>
+              {currentShow ? (
+                <img
+                  src={currentShow.image}
+                  alt={currentShow.title}
+                  className='w-full h-full object-cover'
+                />
+              ) : (
+                <div className='flex h-full w-full items-center justify-center bg-[#2295e2] text-white font-semibold'>FM</div>
+              )}
+            </div>
             <div className='truncate'>
               <h4 className='font-medium text-sm truncate'>
-                {stationInfo.title}
+                Swahilipot FM
               </h4>
-              <div className='flex items-center'>
-                <div className='nowplaying-animation mr-2 h-3'>
+              <div className='flex items-center gap-2'>
+                <div className='nowplaying-animation h-3'>
                   <span className='mx-[1px]'></span>
                   <span className='mx-[1px]'></span>
                   <span className='mx-[1px]'></span>
                 </div>
                 <p className='text-xs text-gray-600 truncate'>
-                  {stationInfo.artist}
+                  Now Playing: {currentShow?.title || 'Swahilipot FM Live'}
                 </p>
               </div>
+              {currentShow && (
+                <p className='text-[11px] text-gray-500 truncate'>
+                  Hosted by {currentShow.host}
+                </p>
+              )}
             </div>
           </div>
 
