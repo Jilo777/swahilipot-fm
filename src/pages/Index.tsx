@@ -22,7 +22,7 @@ const CounterCard = ({
   const [isVisible, setIsVisible] = useState(false);
   const [isHovering, setIsHovering] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
-  const intervalRef = useRef<NodeJS.Timeout | null>(null);
+  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -298,10 +298,10 @@ const Index = () => {
             Become part of a vibrant radio station that celebrates youth voices and community stories.
           </p>
           <div className='flex flex-col sm:flex-row gap-4 justify-center'>
-            <Button asChild className='rounded-full bg-white text-[#271d73] hover:bg-gray-200 font-medium'>
+            <Button asChild className='rounded-full bg-white text-[#271d73] hover:bg-gray-200 font-medium transition-all duration-300 hover:-translate-y-0.5'>
               <Link to='/live'>Listen Now</Link>
             </Button>
-            <Button asChild className='rounded-full border-2 border-white text-white hover:bg-white/10 font-medium'>
+            <Button asChild className='rounded-full border-2 border-white text-white hover:bg-white/10 font-medium transition-all duration-300 hover:-translate-y-0.5'>
               <Link to='/contact'>Get In Touch</Link>
             </Button>
           </div>

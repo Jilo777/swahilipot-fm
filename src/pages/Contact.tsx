@@ -62,7 +62,7 @@ const Contact = () => {
     <div className='flex flex-col gap-20 pb-24'>
       {/* Hero Section */}
       <section
-        className='relative bg-cover bg-center bg-no-repeat'
+        className='relative bg-cover bg-center bg-no-repeat scroll-animation'
         style={{
           backgroundImage: 'url(/images/contact-background.jpg)',
         }}
@@ -95,12 +95,12 @@ const Contact = () => {
       </section>
 
       {/* Contact Form and Info Section */}
-      <section className='container mx-auto px-4 md:px-6'>
+      <section className='container mx-auto px-4 md:px-6 scroll-animation'>
         <div className='max-w-7xl mx-auto'>
           <div className='grid grid-cols-1 lg:grid-cols-5 gap-12'>
             {/* Contact Form - 3 columns */}
             <div className='lg:col-span-3'>
-              <Card className='p-6 md:p-8 border-gray-200 shadow-sm'>
+              <Card className='p-6 md:p-8 border-gray-200 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg'>
                 <div className='mb-8'>
                   <h2 className='text-2xl font-bold mb-2'>Send us a message</h2>
                   <p className='text-gray-600'>
@@ -207,7 +207,7 @@ const Contact = () => {
             {/* Contact Info - 2 columns */}
             <div className='lg:col-span-2'>
               <div className='space-y-8'>
-                <Card className='p-6 border-gray-200 shadow-sm'>
+                <Card className='p-6 border-gray-200 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg'>
                   <h3 className='text-lg font-bold mb-4'>Visit Our Studio</h3>
                   <div className='flex gap-4'>
                     <div className='shrink-0'>
@@ -234,7 +234,7 @@ const Contact = () => {
                   </div>
                 </Card>
 
-                <Card className='p-6 border-gray-200 shadow-sm'>
+                <Card className='p-6 border-gray-200 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg'>
                   <h3 className='text-lg font-bold mb-4'>Studio Hours</h3>
                   <div className='flex gap-4'>
                     <div className='shrink-0'>
@@ -314,9 +314,9 @@ const Contact = () => {
       </section>
 
       {/* Map Section */}
-      <section className='container mx-auto px-4 md:px-6'>
+      <section className='container mx-auto px-4 md:px-6 scroll-animation'>
         <div className='max-w-7xl mx-auto'>
-          <Card className='border-gray-200 shadow-sm p-0 overflow-hidden'>
+          <Card className='border-gray-200 shadow-sm p-0 overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-lg'>
             <div className='aspect-[21/9] w-full'>
               <iframe
                 src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3979.7704715011578!2d39.6709314!3d-4.067137000000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x18401322c6d24283%3A0x6452b2790d4e3e3f!2sImaara%20-%20Your%20New%20Address%2C%20Dedan%20Kimathi%20Ave%2C%20Mombasa!5e0!3m2!1sen!2ske!4v1741154782415!5m2!1sen!2ske'
@@ -334,7 +334,7 @@ const Contact = () => {
       </section>
 
       {/* FAQ Section */}
-      <section className='bg-gray-50 py-20'>
+      <section className='bg-gray-50 py-20 scroll-animation'>
         <div className='container mx-auto px-4 md:px-6'>
           <div className='max-w-3xl mx-auto text-center mb-12'>
             <h2 className='font-display text-3xl font-bold mb-4'>
@@ -348,7 +348,7 @@ const Contact = () => {
           <div className='max-w-3xl mx-auto'>
             <div className='space-y-6'>
               {faqs.map((faq, index) => (
-                <Card key={index} className='border-gray-200'>
+                <Card key={index} className='border-gray-200 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg'>
                   <div className='p-6'>
                     <h3 className='text-lg font-bold mb-2'>{faq.question}</h3>
                     <p className='text-gray-600'>{faq.answer}</p>
