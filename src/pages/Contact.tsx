@@ -217,7 +217,7 @@ const Contact = () => {
                     </div>
                     <div>
                       <address className='not-italic text-gray-600'>
-                        5th Floor, Imaara - Your New Address, <br />
+                        Next to Imaara - Your New Address, <br />
                         Dedan Kimathi Ave. <br />
                         Opposite Pandya Hosp. Kizingo, <br />
                         Mombasa
@@ -245,11 +245,11 @@ const Contact = () => {
                     <div className='space-y-2'>
                       <div className='flex justify-between'>
                         <span>Monday - Friday:</span>
-                        <span>8:00 AM - 5:00 PM</span>
+                        <span>6:00 AM - Midnight</span>
                       </div>
                       <div className='flex justify-between'>
                         <span>Saturday:</span>
-                        <span>9:00 AM - 2:00 PM</span>
+                        <span>8:00 AM - 5:00 PM</span>
                       </div>
                       <div className='flex justify-between'>
                         <span>Sunday:</span>
@@ -278,7 +278,7 @@ const Contact = () => {
                       <div>
                         <p className='font-medium'>Call Us</p>
                         <a href='tel:+254700917917' className='text-gray-600'>
-                          +254 700 917917
+                          +254 732 917917
                         </a>
                         <a
                           href='tel:+25471917917'
