@@ -46,7 +46,7 @@ const Presenters = () => {
             return (
               <div
                 key={presenter.id}
-                className='group overflow-hidden rounded-[32px] border border-white/10 bg-white/5 shadow-lg shadow-black/10 transition duration-300 hover:-translate-y-1 hover:shadow-2xl'
+                className='group scroll-animation overflow-hidden rounded-[32px] border border-white/10 bg-white/5 shadow-lg shadow-black/10 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl'
               >
                 <div className='relative h-96 overflow-hidden'>
                   <img
@@ -57,7 +57,8 @@ const Presenters = () => {
                     }
                     alt={presenter.name}
                     className='absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-105'
-                    loading='lazy'
+                    loading='eager'
+                    fetchPriority='high'
                     decoding='async'
                     width={640}
                     height={640}
@@ -84,7 +85,7 @@ const Presenters = () => {
                   ) : null}
                   <Link
                     to={`/presenters/${presenter.id}`}
-                    className='inline-flex items-center justify-center rounded-full bg-[#2295e2] px-5 py-2 text-sm font-medium text-white transition hover:bg-[#1f78c4]'
+                    className='inline-flex items-center justify-center rounded-full bg-[#2295e2] px-5 py-2 text-sm font-medium text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#1f78c4]'
                   >
                     View Profile →
                   </Link>

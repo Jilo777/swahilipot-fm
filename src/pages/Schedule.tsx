@@ -41,7 +41,7 @@ const Schedule = () => {
 
   return (
     <div>
-      <section className='mb-10'>
+      <section className='mb-10 scroll-animation'>
         <div className='relative overflow-hidden bg-black mx-auto w-full'>
           <video
             className='h-[260px] md:h-[360px] lg:h-[420px] w-full object-cover pointer-events-none'
@@ -56,7 +56,7 @@ const Schedule = () => {
         </div>
       </section>
 
-      <div className='container mx-auto px-4 md:px-6 py-2 md:py-6'>
+      <div className='container mx-auto px-4 md:px-6 py-2 md:py-6 scroll-animation'>
         {/* Header section */}
         <ScheduleHeader
           selectedDay={selectedDay}
@@ -114,7 +114,7 @@ const Schedule = () => {
             <div className='min-w-[800px]'>
               <div className='grid grid-cols-7 gap-4'>
                 {scheduleByDay.map((day) => (
-                  <div key={day.name} className='text-center'>
+                  <div key={day.name} className='text-center scroll-animation'>
                     <div
                       className={`font-medium p-2 mb-2 rounded-lg ${
                         day.name === selectedDay
