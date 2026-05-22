@@ -132,7 +132,7 @@ export const allShows: Show[] = [
     image: '/show-banners/the-friday-rave.png',
     category: 'Music',
     days: ['Friday'],
-    startTime: '19:00',
+    startTime: '21:00',
     endTime: '22:00',
     tags: ['Live Music', 'Song', 'Entertainment'],
   },
